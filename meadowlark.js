@@ -4,17 +4,11 @@ var handlebars = require('express-handlebars').create({ defaultLayout:'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
-
+var fortune = require('./lib/fortune.js');
 // STATIC MIDDLEWARE
 app.use(express.static(__dirname + '/public'));
 
-// *******************************************************************
-// PRACTICE JS
-var fortunes = [
-          "Conquer your fears or they will conquer you.",
-          "Do not fear what you don't know",
-          "Change your story and you will change your life"
-];
+
 // *******************************************************************
 // ROUTES
 
@@ -23,9 +17,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/about', function(req, res){
-          var randomFortune =
-                fortunes[Math.floor(Math.random() * fortunes.length)];
-        res.render('about', { fortune: randomFortune });
+        res.render('about', { fortune: fortune.getFortune() });
 });
 
 // custom 404 page
