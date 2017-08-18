@@ -4,10 +4,33 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Meadowlark Travel</title>
+    {{#if showTests}}
+            <link rel="stylesheet" href="/vendor/mocha.css">
+    {{/if}}
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="">
 </head>
 <body>
 <header><img src="/img/logo.png" alt="Meadowlark Travel Logo"></header>
     {{{body}}}
+
+    {{#if showTests}}
+            <div id="mocha"></div>
+            <script src="/vendor/mocha.js"></script>
+            <script src="/vendor/chai.js"></script>
+            <script>
+                    mocha.ui('tdd');
+                    var assert = chai.assert;
+            </script>
+            <scirpt src="/qa/tests-global.js"></scirpt>
+            {{#if pageTestScript}}
+                    <script src="{{pageTestScript}}"></script>
+            {{/if}}
+
+
 </body>
 </html>

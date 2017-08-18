@@ -10,6 +10,14 @@ app.use(express.static(__dirname + '/public'));
 
 
 // *******************************************************************
+// TESTING MIDDLEWARE
+
+app.use(function(req, res, next){
+        res.locals.showTests = app.get('env') !== 'production' &&
+        req.query.test === '1';
+        next();
+});
+
 // ROUTES
 
 app.get('/', function(req, res){
