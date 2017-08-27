@@ -7,12 +7,14 @@
     {{#if showTests}}
             <link rel="stylesheet" href="/vendor/mocha.css">
     {{/if}}
+    {{{_sections.head}}}
+
+    <link rel="stylesheet" href="">
     <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="">
 </head>
 <body>
 <header><img src="/img/logo.png" alt="Meadowlark Travel Logo"></header>
@@ -34,5 +36,6 @@
     {{/if}}
 
 
+    {{{_sections.jquery}}}
 </body>
 </html>

@@ -1,5 +1,6 @@
 var express =  require('express');
 var fortune = require('./lib/fortune.js');
+var express_handlebars_sections = require('express-handlebars-sections');
 
 var app = express();
 
@@ -85,6 +86,10 @@ app.get('/tours/hood-river', function(req, res){
 
 app.get('/tours/request-group-rate', function(req, res){
         res.render('tours/request-group-rate');
+});
+
+app.get('/jquery-test', function(req, res){
+        res.render('jquery-test');
 });
 
 // custom 404 page
