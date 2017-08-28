@@ -1,5 +1,6 @@
 var express =  require('express');
 var fortune = require('./lib/fortune.js');
+var formidable = require('formidable');
 
 var app = express();
 
@@ -107,7 +108,12 @@ app.get('/data/nursery-rhyme', function(req, res){
                   noun: 'heck'
         });
 });
-
+app.get('/contest/vacation-photo', function(req, res){
+        var now = new Date();
+        res.render('contest/vacation-photo',{
+            year: now.getFullYear(),month: now.getMonth()
+        });
+});
 // app.get('/thank-you', function(req, res){
 //         res.render('thank-you');
 
