@@ -3,3 +3,4 @@ node_modules
 *~
 #Additional files to ignore
 .DS_Store
+credentials.js
